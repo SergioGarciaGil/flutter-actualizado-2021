@@ -42,5 +42,5 @@ class _ImagesPagesState extends State<ImagesPages> {
         ),
       ),
     );
-  }vvvvvv
+  }
 }
