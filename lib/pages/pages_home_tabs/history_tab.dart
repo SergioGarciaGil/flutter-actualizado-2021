@@ -11,8 +11,13 @@ class _HistryTabState extends State<HistryTab> {
   @override
   Widget build(BuildContext context) {
     print('Historial');
-    return Center(
-      child: Text('Historial'),
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return Container(
+          color: Colors.blue,
+          height: constraints.maxHeight / 2,
+        );
+      },
     );
   }
 }

@@ -25,18 +25,37 @@ class _ImagesPagesState extends State<ImagesPages> {
                   onRightClick: () => Navigator.pop(context),
                   onleftClick: () => Navigator.pop(context)),
               Expanded(
-                  child: GridView.count(
-                crossAxisCount: 5,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                children: List.generate(50, (index) {
-                  return Container(
-                    color: Colors.black12,
-                    alignment: Alignment.center,
-                    child: Text('${index + 1}'),
-                  );
-                }),
-              )),
+                //gridView. builder se usa para grandes elementos:
+
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 5,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10),
+                  itemBuilder: (_, index) {
+                    return Container(
+                      color: Colors.black12,
+                      alignment: Alignment.center,
+                      child: Text('${index + 1}'),
+                    );
+                  },
+                  itemCount: 100,
+                ),
+
+                // GidView.count lo utizamos para pequeños proyectos
+                // child: GridView.count(
+                //   crossAxisCount: 5,
+                //   crossAxisSpacing: 10,
+                //   mainAxisSpacing: 10,
+                //   children: List.generate(50, (index) {
+                //     return Container(
+                //       color: Colors.black12,
+                //       alignment: Alignment.center,
+                //       child: Text('${index + 1}'),
+                //     );
+                //   }),
+                // ),
+              ),
             ],
           ),
         ),
