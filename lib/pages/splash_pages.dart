@@ -2,6 +2,7 @@ import 'package:after_layout/after_layout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_actualizacion2021/pages/home_pages.dart';
+import 'package:flutter_actualizacion2021/pages/pages_home_tabs/login_page.dart';
 
 class SplashPages extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _SplashPagesState extends State<SplashPages> with AfterLayoutMixin {
       Navigator.pushNamed(context, 'home');
 
       //muestra una nueva pagina y elimina del historial esplash cuan le de hacia atras
-      Navigator.pushReplacementNamed(context, HomePages.routeName);
+      Navigator.pushReplacementNamed(context, LoginPage.routeName);
     });
   }
 

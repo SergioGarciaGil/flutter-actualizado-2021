@@ -7,6 +7,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 //import 'package:image_picker/image_picker.dart';
 
 class Avatar extends StatefulWidget {
+  final size;
+
+  const Avatar({Key key, this.size = 150}) : super(key: key);
   @override
   _AvatarState createState() => _AvatarState();
 }
@@ -23,8 +26,8 @@ class _AvatarState extends State<Avatar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      height: 200,
+      width: widget.size,
+      height: widget.size,
       child: Stack(
         children: [
           _file == null

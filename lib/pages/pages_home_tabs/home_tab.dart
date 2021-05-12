@@ -33,7 +33,9 @@ class _HomeTabState extends State<HomeTab> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Avatar(),
+                          Avatar(
+                            size: contraints.maxHeight * 0.25,
+                          ),
                           SizedBox(
                             height: 20,
                           ),

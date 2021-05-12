@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_actualizacion2021/pages/chat_pages.dart';
+import 'package:flutter_actualizacion2021/pages/pages_home_tabs/chat_pages.dart';
 import 'package:flutter_actualizacion2021/pages/pages_home_tabs/history_tab.dart';
 import 'package:flutter_actualizacion2021/pages/pages_home_tabs/home_tab.dart';
 import 'package:flutter_actualizacion2021/pages/pages_home_tabs/more_tab.dart';
