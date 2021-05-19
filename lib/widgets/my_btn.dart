@@ -5,6 +5,7 @@ class MyBtn extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
   final bool fullWidth;
+  final EdgeInsets padding;
 
   final Color backgrounColor, textColor;
   const MyBtn(
@@ -13,7 +14,8 @@ class MyBtn extends StatelessWidget {
       @required this.onPressed,
       this.backgrounColor,
       this.textColor,
-      this.fullWidth = false})
+      this.fullWidth = false,
+      this.padding})
       : assert(label != null);
 
   @override
@@ -23,18 +25,23 @@ class MyBtn extends StatelessWidget {
       padding: EdgeInsets.zero,
       child: Container(
         width: fullWidth ? double.infinity : null,
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+        padding:
+            this.padding ?? EdgeInsets.symmetric(horizontal: 30, vertical: 18),
         child: Text(
           this.label,
           textAlign: TextAlign.center,
           style: TextStyle(
               color: this.textColor ?? Colors.black,
-              fontWeight: FontWeight.w500),
+              fontWeight: FontWeight.w500,
+              letterSpacing: 0.5),
         ),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(30),
             color: this.backgrounColor ?? Colors.white,
-            boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)]),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black38, blurRadius: 10, offset: Offset(0, 5))
+            ]),
       ),
       onPressed: () {
         FocusScope.of(context).unfocus();

@@ -1,7 +1,7 @@
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_actualizacion2021/pages/home_pages.dart';
+
 import 'package:flutter_actualizacion2021/pages/pages_home_tabs/login_page.dart';
 
 class SplashPages extends StatefulWidget {
