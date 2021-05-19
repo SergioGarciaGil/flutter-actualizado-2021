@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_actualizacion2021/pages/pages_home_tabs/login_page.dart';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MoreTab extends StatefulWidget {
   MoreTab({Key key}) : super(key: key);
@@ -8,11 +12,21 @@ class MoreTab extends StatefulWidget {
 }
 
 class _MoreTabState extends State<MoreTab> {
+  _logOut() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+    Navigator.pushNamedAndRemoveUntil(
+        context, LoginPage.routeName, (_) => false);
+  }
+
   @override
   Widget build(BuildContext context) {
     print('Mas');
     return Center(
-      child: Text('Mas'),
+      child: CupertinoButton(
+        child: Text('Cerrar sesión'),
+        onPressed: _logOut,
+      ),
     );
   }
 }

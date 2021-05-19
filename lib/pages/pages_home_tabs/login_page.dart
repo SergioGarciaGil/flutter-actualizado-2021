@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_actualizacion2021/pages/home_pages.dart';
 import 'package:flutter_actualizacion2021/widgets/my_btn.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   static final routeName = 'login';
@@ -20,14 +22,17 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  _submit() {
+  _submit() async {
     final bool isValid = _formKey.currentState.validate();
-    if (isValid) {}
+    if (isValid) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setBool('wasLogin', true);
+    }
   }
 
   String _validateEmail(String email) {
     if (email.isNotEmpty && email.contains('@')) {
-      return null;
+      Navigator.pushReplacementNamed(context, HomePages.routeName);
     }
     return 'invalid email';
   }
@@ -112,11 +117,24 @@ class _LoginPageState extends State<LoginPage> {
                             _submit();
                           },
                         ),
+                        SizedBox(
+                          height: 5,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             CupertinoButton(
-                              child: Text('Recuperar contraseña'),
+                              padding: EdgeInsets.zero,
+                              child: Container(
+                                  padding: EdgeInsets.symmetric(vertical: 10),
+                                  margin: EdgeInsets.symmetric(horizontal: 10),
+                                  child: Text(
+                                    'Olvidé mi contraseña',
+                                  ),
+                                  decoration: BoxDecoration(
+                                      border: Border(
+                                          bottom: BorderSide(
+                                              width: 1, color: Colors.blue)))),
                               onPressed: () {},
                             ),
                           ],
@@ -131,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                           backgrounColor: Color(0xff304FFE),
                           textColor: Colors.white,
                         ),
-                        SizedBox(height: 30),
+                        SizedBox(height: 35),
                         Text('O inicia con'),
                         SizedBox(
                           height: 10,
